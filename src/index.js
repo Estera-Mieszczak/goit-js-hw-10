@@ -32,19 +32,17 @@ breedSelect.addEventListener('change', e => {
     fetchCatByBreed(e.target.value).then(data => renderCat(data));
 
 })
-
 function renderCat(catData) {
     console.log(catData);
     const { url } = catData[0];
     const { description, name, temperament } = catData[0].breeds[0];
-    catInfo.insertAdjacentHTML(
-        'beforeend',
+    catInfo.innerHTML = 
         `<div>
             <h2>${name}</h2>
             <img src="${url}" alt="${name}" />
             <p>${description}</p>
             <p><strong>Temperament:</strong> ${temperament}</p>
-        </div>`);
+        </div>`;
     loader.classList.add('hidden');
     catInfo.classList.remove('hidden');
 }
