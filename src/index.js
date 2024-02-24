@@ -37,11 +37,11 @@ function renderCat(catData) {
     const { url } = catData[0];
     const { description, name, temperament } = catData[0].breeds[0];
     catInfo.innerHTML = 
-        `<div>
-            <h2>${name}</h2>
-            <img src="${url}" alt="${name}" />
+        `<div class="cat-info-box">
+            <div class="cat-image-box"><img class="cat-image" src="${url}" alt="${name}" width="500px"/></div>
+            <div class="cat-description"><h2 class="cat-name">${name}</h2>
             <p>${description}</p>
-            <p><strong>Temperament:</strong> ${temperament}</p>
+            <p><strong>Temperament:</strong> ${temperament}</p></div>
         </div>`;
     loader.classList.add('hidden');
     catInfo.classList.remove('hidden');
