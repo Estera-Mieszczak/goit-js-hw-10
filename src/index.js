@@ -5,7 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const breedSelect = document.querySelector(".breed-select");
 const catInfo = document.querySelector(".cat-info");
 const loader = document.querySelector(".loader");
-
+const errorText = document.querySelector(".error");
 
 
 try {
@@ -28,11 +28,19 @@ function renderSelect(breeds) {
 }
 
 breedSelect.addEventListener('change', e => {
+
     loader.classList.remove('hidden');
     fetchCatByBreed(e.target.value).then(data => renderCat(data));
 
 })
 function renderCat(catData) {
+    if (catData.length === 0) {
+        loader.classList.add('hidden');
+        errorText.classList.remove('hidden');
+        catInfo.classList.add('hidden');
+        return Notify.failure("Error, try again");
+    }
+    catInfo.classList.remove('hidden');
     console.log(catData);
     const { url } = catData[0];
     const { description, name, temperament } = catData[0].breeds[0];

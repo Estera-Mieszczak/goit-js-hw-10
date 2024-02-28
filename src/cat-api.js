@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Notify } from "notiflix";
 
 const errorText = document.querySelector(".error");
 const loader = document.querySelector(".loader");
@@ -6,7 +7,8 @@ const loader = document.querySelector(".loader");
 export const fetchBreeds = () => {
     axios.defaults.headers.common["x-api-key"] = "live_ZOQpZ7dNBs5KqBP2Babcjpn5zjGR7DszcnMDtkrVEtyxRTV8uFqa1OLhOoDdowvF";
     
-    return axios.get(`https://api.thecatapi.com/v1/breeds`)
+   return axios.get(`https://api.thecatapi.com/v1/breeds`)
+        
         .then(res => res.data)
         .catch(() => {
             errorText.classList.remove('hidden');
