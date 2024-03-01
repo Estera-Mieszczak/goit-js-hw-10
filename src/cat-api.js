@@ -13,6 +13,7 @@ export const fetchBreeds = () => {
         .catch(() => {
             errorText.classList.remove('hidden');
             loader.classList.add('hidden');
+            return Notify.failure("Error, try again");
         })
 }
 
@@ -22,5 +23,6 @@ export const fetchCatByBreed = breedId => {
         .catch(() => {
             errorText.classList.remove('hidden');
             loader.classList.add('hidden');
+            return Notify.failure("Error, try again");
          })
 } 

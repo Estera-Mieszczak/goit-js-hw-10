@@ -40,6 +40,7 @@ function renderCat(catData) {
         catInfo.classList.add('hidden');
         return Notify.failure("Error, try again");
     }
+    errorText.classList.add('hidden');
     catInfo.classList.remove('hidden');
     console.log(catData);
     const { url } = catData[0];
